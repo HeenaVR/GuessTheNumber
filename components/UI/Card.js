@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     elevation: 4, //Android shadow
     shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 2, height: 6 },
     shadowRadius: 6,
-    shadowOpacity: 0.28,
+    shadowOpacity: 0.5,
   },
 });
