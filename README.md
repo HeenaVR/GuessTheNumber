@@ -2,9 +2,6 @@ Guess My Number - React Native Game 🎮
 
 Welcome to Guess My Number, a fun game where your device tries to guess the number you're thinking of! It's simple, but it's sure to keep you entertained. 🎉
 
-!(https://github.com/HeenaVR/GuessTheNumber/blob/7128d250b177bd3e05b4895e38166b126a87a7d3/GuessMyNumber.pdf)
-[GuessMyNumber.pdf](https://github.com/user-attachments/files/16618473/GuessMyNumber.pdf)
-
 🚀 About the Game
 
 Guess My Number is a guessing game where:
