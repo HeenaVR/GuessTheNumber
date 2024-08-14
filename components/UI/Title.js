@@ -1,8 +1,8 @@
 import { Text, StyleSheet } from "react-native";
-import Colors from "../Constants/Colors";
+import Colors from "../../Constants/Colors";
 
-function Title({children}) {
-  return <Text style={styles.title}>{children}</Text>
+function Title({ children }) {
+  return <Text style={styles.title}>{children}</Text>;
 }
 
 export default Title;
@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: Colors.blue,
     textAlign: "center",
-    borderWidth: 2,
-    borderColor: Colors.yellow,
+    // borderWidth: 2,
+    // borderColor: Colors.secondary,
     padding: 12,
   },
 });
