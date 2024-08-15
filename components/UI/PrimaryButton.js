@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     textAlign: "center",
     fontWeight: '600',
-    fontSize: '18'
+    // fontSize: '18'//FIXME: - this line crashes in Android
   },
   pressed: {
     opacity: 0.75,

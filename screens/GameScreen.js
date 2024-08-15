@@ -112,7 +112,8 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     paddingTop: 22,
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
+    alignItems: 'center'
   },
   instructionText: {
     marginBottom: 12,
