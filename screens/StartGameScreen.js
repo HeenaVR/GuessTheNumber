@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { TextInput, View, StyleSheet, Alert } from "react-native";
+import {
+  TextInput,
+  View,
+  StyleSheet,
+  Alert,
+  useWindowDimensions,
+  ScrollView,
+  KeyboardAvoidingView,
+} from "react-native";
 
 import PrimaryButton from "../components/UI/PrimaryButton";
 import Colors from "../Constants/Colors";
@@ -9,6 +17,8 @@ import InstructionName from "../components/UI/InstructionName";
 
 function StartGameScreen({ onPickNumber }) {
   const [enteredNumber, setEnteredNumber] = useState("");
+
+  const { width, height } = useWindowDimensions();
 
   function numberInputHandler(enteredText) {
     setEnteredNumber(enteredText);
@@ -34,42 +44,53 @@ function StartGameScreen({ onPickNumber }) {
     onPickNumber(chosenNumber);
   }
 
+  const marginTopDistance = height < 380 ? 30 : 100;
+
   return (
-    <View style={styles.rootContainer}>
-      <Title>Guess my Number</Title>
-      <Card>
-        <InstructionName>Enter a number</InstructionName>
-        <TextInput
-          style={styles.numberInput}
-          maxLength={2}
-          keyboardType="number-pad"
-          autoCapitalize="none"
-          autoCorrect={false}
-          value={enteredNumber}
-          onChangeText={numberInputHandler}
-        />
-        <View style={styles.buttonsContainer}>
-          <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
-          </View>
-          <View style={styles.buttonContainer}>
-            <PrimaryButton myOnPress={confirmInputHandler}>
-              Confirm
-            </PrimaryButton>
-          </View>
+    <ScrollView style={styles.screen}>
+      <KeyboardAvoidingView style={styles.screen} behavior="position">
+        <View style={[styles.rootContainer, { marginTop: marginTopDistance }]}>
+          <Title>Guess my Number</Title>
+          <Card>
+            <InstructionName>Enter a number</InstructionName>
+            <TextInput
+              style={styles.numberInput}
+              maxLength={2}
+              keyboardType="number-pad"
+              autoCapitalize="none"
+              autoCorrect={false}
+              value={enteredNumber}
+              onChangeText={numberInputHandler}
+            />
+            <View style={styles.buttonsContainer}>
+              <View style={styles.buttonContainer}>
+                <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
+              </View>
+              <View style={styles.buttonContainer}>
+                <PrimaryButton myOnPress={confirmInputHandler}>
+                  Confirm
+                </PrimaryButton>
+              </View>
+            </View>
+          </Card>
         </View>
-      </Card>
-    </View>
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
 }
 
 export default StartGameScreen;
 
+// const deviceHeight = Dimensions.get('window').height;
+
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
   rootContainer: {
     flex: 1,
-    marginTop: 100,
-    alignItems: 'center'
+    // marginTop: deviceHeight < 400 ? 30 : 100, // This will execute only once.
+    alignItems: "center",
   },
   numberInput: {
     height: 50,
